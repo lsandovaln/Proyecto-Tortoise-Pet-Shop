@@ -14,6 +14,7 @@ public class Controller {
             Map<String, Object> attributes = new HashMap<>();
             attributes.put("message", "Hello World!");
             return new ModelAndView(attributes, "hello.ftl");
+            int GGGG;
         }, new FreeMarkerEngine());
     }
     
