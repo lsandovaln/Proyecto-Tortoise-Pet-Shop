@@ -7,6 +7,7 @@ import static spark.Spark.*;
 import spark.template.freemarker.FreeMarkerEngine;
 
 public class Controller {
+    int b = 0;
     
     public static void main(String[] args) {
         get("/hello", (request, response) -> {
