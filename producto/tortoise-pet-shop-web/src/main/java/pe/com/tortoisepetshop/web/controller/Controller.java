@@ -11,7 +11,7 @@ public class Controller {
     public static void main(String[] args) {
         get("/hello", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            attributes.put("message", "Hello World!");
+            attributes.put("message", "Holi  no dejen su github abierto :v"");
             return new ModelAndView(attributes, "hello.ftl");
         }, new FreeMarkerEngine());
     }
