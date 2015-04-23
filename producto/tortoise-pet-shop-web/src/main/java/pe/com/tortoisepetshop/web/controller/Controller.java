@@ -9,10 +9,9 @@ import spark.template.freemarker.FreeMarkerEngine;
 public class Controller {
     
     public static void main(String[] args) {
-        get("/hello", (request, response) -> {
+        get("/", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            attributes.put("message", "Hello World!");
-            return new ModelAndView(attributes, "hello.ftl");
+            return new ModelAndView(attributes, "layout.ftl");
         }, new FreeMarkerEngine());
     }
     
