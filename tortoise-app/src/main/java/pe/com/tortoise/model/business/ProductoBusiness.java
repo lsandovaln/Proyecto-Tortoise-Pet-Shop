@@ -2,9 +2,13 @@
 package pe.com.tortoise.model.business;
 
 public class ProductoBusiness {
-    String nombre;
-    Integer stock;
-    CategoriaBusiness categoria;
+    private Integer identificador;
+    private String nombre;
+    private Integer stock;
+    private CategoriaBusiness categoria;
+
+    public ProductoBusiness() {
+    }
 
     public String getNombre() {
         return nombre;
