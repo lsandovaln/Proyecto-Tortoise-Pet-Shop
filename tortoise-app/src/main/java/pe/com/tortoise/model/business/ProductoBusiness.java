@@ -1,12 +1,18 @@
 
 package pe.com.tortoise.model.business;
 
+import pe.com.tortoise.model.view.ProductoView;
+
 public class ProductoBusiness {
     private Integer identificador;
     private String nombre;
     private Integer stock;
     private CategoriaBusiness categoria;
 
+    public ProductoView obtenerVista() {
+        return null;
+    }
+    
     public ProductoBusiness() {
     }
 
