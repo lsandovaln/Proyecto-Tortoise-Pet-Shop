@@ -1,11 +1,17 @@
 
 package pe.com.tortoise.model.business;
 
-public class CategoriaBusiness {
+import pe.com.tortoise.model.view.CategoriaView;
+
+public class Categoria {
     private Integer identificador;
     private String descripcion;
 
-    public CategoriaBusiness() {
+    public CategoriaView obtenerVista() {
+        return new CategoriaView(identificador, descripcion);
+    }
+    
+    public Categoria() {
     }
 
     public String getDescripcion() {
