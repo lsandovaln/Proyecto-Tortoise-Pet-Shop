@@ -1,6 +1,7 @@
 
 package pe.com.tortoise.model.business;
 
+import pe.com.tortoise.model.persistence.CategoriaDao;
 import pe.com.tortoise.model.view.CategoriaView;
 
 public class Categoria {
@@ -11,7 +12,18 @@ public class Categoria {
         return new CategoriaView(identificador, descripcion);
     }
     
+    public boolean guardar() {
+        boolean rpta = false;
+        if(identificador < 0) {
+            rpta = CategoriaDao.insertarCategoria(this);
+        } else {
+            rpta = CategoriaDao.actualizarCategoria(this);
+        }
+        return rpta;
+    }
+    
     public Categoria() {
+        identificador = -1;
     }
 
     public String getDescripcion() {
