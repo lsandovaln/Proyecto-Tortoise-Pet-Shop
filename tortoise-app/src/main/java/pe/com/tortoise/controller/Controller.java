@@ -55,7 +55,6 @@ public class Controller {
         }, new FreeMarkerEngine());
         
         post("/Mantenimiento/Productos/Registrar", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
             String nombre = request.queryParams("txtNombre");
             Integer idCategoria = Integer.parseInt(request.queryParams("txtCategoria"));
             Categoria categoria = CategoriaDao.obtenerCategoria(idCategoria);
@@ -68,7 +67,6 @@ public class Controller {
         });
         
         post("/Mantenimiento/Categorias/Registrar", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
             String descripcion = request.queryParams("txtDescripcion");
             Categoria categoria = new Categoria(descripcion);
             CategoriaDao.insertarCategoria(categoria);
@@ -78,7 +76,7 @@ public class Controller {
         
         get("/Mantenimiento/Productos/Actualizar/:id", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            Integer id = Integer.parseInt(request.queryParams(":id"));
+            Integer id = Integer.parseInt(request.params(":id"));
             Producto producto = ProductoDao.obtenerProducto(id);
             attributes.put("producto", producto.obtenerVista());
             attributes.put("templateName", "formularioProducto.ftl");
@@ -87,15 +85,13 @@ public class Controller {
         
         get("/Mantenimiento/Categorias/Actualizar/:id", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
-            Integer id = Integer.parseInt(request.queryParams(":id"));
-            Categoria categoria = CategoriaDao.obtenerCategoria(id);
-            attributes.put("categoria", categoria.obtenerVista());
+            Integer id = Integer.parseInt(request.params(":id"));
+            attributes.put("categoria", CategoriaDao.obtenerCategoria(id).obtenerVista());
             attributes.put("templateName", "formularioCategoria.ftl");
             return new ModelAndView(attributes, "layout.ftl");
         }, new FreeMarkerEngine());
         
         post("/Mantenimiento/Productos/Actualizar/:id", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
             Integer id = Integer.parseInt(request.queryParams("txtId"));
             String nombre = request.queryParams("txtNombre").toString();
             Integer idCategoria = Integer.parseInt(request.queryParams("txtCategoria"));
@@ -109,7 +105,6 @@ public class Controller {
         });
         
         post("/Mantenimiento/Categorias/Actualizar/:id", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
             Integer id = Integer.parseInt(request.queryParams("txtId"));
             String descripcion = request.queryParams("txtDescripcion");
             Categoria categoria = new Categoria(id, descripcion);
@@ -119,16 +114,14 @@ public class Controller {
         });
         
         get("/Mantenimiento/Productos/Eliminar/:id", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            Integer id = Integer.parseInt(request.queryParams("id"));
+            Integer id = Integer.parseInt(request.params(":id"));
             ProductoDao.eliminarProducto(id);
             response.redirect("/Mantenimiento/Productos");
             return null;
         });
         
         get("/Mantenimiento/Categorias/Eliminar/:id", (request, response) -> {
-            Map<String, Object> attributes = new HashMap<>();
-            Integer id = Integer.parseInt(request.queryParams("id"));
+            Integer id = Integer.parseInt(request.params(":id"));
             CategoriaDao.eliminarCategoria(id);
             response.redirect("/Mantenimiento/Categorias");
             return null;

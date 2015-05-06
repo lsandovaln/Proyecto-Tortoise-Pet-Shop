@@ -52,12 +52,12 @@ public class ProductoDao {
         try {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
-            String sql = "UPDATE producto SET"
+            String sql = "UPDATE producto SET "
                     + "nombre='" + producto.getNombre() + "',"
                     + "stock=" + producto.getStock().toString() + ","
                     + "precio=" + producto.getPrecio().toString() + ","
                     + "idcategoria=" + producto.getCategoria().getIdentificador().toString()
-                    + "WHERE id=" + producto.getIdentificador();
+                    + " WHERE id=" + producto.getIdentificador();
             stmnt.executeUpdate(sql);
             return true;
         } catch(SQLException ex) {
@@ -86,7 +86,7 @@ public class ProductoDao {
         try {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
-            String sql = "DELETE producto"
+            String sql = "DELETE FROM producto "
                     + "WHERE id=" + id.toString();
             stmnt.executeUpdate(sql);
             return true;

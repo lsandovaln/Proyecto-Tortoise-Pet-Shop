@@ -9,15 +9,15 @@
         <th>Stock</th>
         <th>Accion</th>
     </tr>
-        <#list productos as producto>
-            <tr>
-                <td>${producto.identificador}</td>
-                <td>${producto.nombre}</td>
-                <td>${producto.categoria.descripcion}</td>
-                <td>${producto.precio}</td>
-                <td>${producto.stock}</td>
-                <td><a href="/Mantenimiento/Productos/Actualizar/${producto.identificador}">Editar</a>
-                    |<a href="/Mantenimiento/Productos/Eliminar/${producto.identificador}">Eliminar</a></td>
-            </tr>
-        </#list>  
+    <#list productos as producto>
+    <tr>
+        <td>${producto.identificador}</td>
+        <td>${producto.nombre}</td>
+        <td>${producto.categoria.descripcion}</td>
+        <td>${producto.precio}</td>
+        <td>${producto.stock}</td>
+        <td><a href="/Mantenimiento/Productos/Actualizar/${producto.identificador}">Editar</a>
+            |<a href="/Mantenimiento/Productos/Eliminar/${producto.identificador}">Eliminar</a></td>
+    </tr>
+    </#list>  
 </table>

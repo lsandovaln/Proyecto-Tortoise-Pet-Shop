@@ -50,7 +50,7 @@ public class CategoriaDao {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
             String sql = "UDATE categoria " +
-                    "SET descripcion='" + categoria.getDescripcion()+"'" +
+                    "SET descripcion='" + categoria.getDescripcion()+"' " +
                     "WHERE id=" + categoria.getIdentificador().toString();
             stmnt.executeUpdate(sql);
             return true;
@@ -80,7 +80,7 @@ public class CategoriaDao {
         try {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
-            String sql = "DELETE categoria"
+            String sql = "DELETE FROM categoria "
                     + "WHERE id=" + id.toString();
             stmnt.executeUpdate(sql);
             return true;
