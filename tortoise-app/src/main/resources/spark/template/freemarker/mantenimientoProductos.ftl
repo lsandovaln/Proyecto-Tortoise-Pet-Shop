@@ -15,6 +15,6 @@
             <td>${producto.categoria.descripcion}</td>
             <td>${producto.precio}</td>
             <td>${producto.stock}</td>
-            <td><td><a href="#">Editar</a></td><td><a href="#">Eliminar</a></td></td>
+            <td><a href="#">Editar</a>|<a href="#">Eliminar</a></td>
         </#list>  
 </table>

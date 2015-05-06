@@ -9,6 +9,6 @@
         <#list categorias as categoria>
             <td>${categoria.identificador}</td>
             <td>${categoria.descripcion}</td>
-            <td><td><a href="#">Editar</a></td><td><a href="#">Eliminar</a></td></td>
+            <td><a href="#">Editar</a><a href="#">Eliminar</a></td>
         </#list>  
 </table>

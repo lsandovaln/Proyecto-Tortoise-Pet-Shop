@@ -26,6 +26,11 @@ public class Categoria {
         identificador = -1;
     }
 
+    public Categoria(String descripcion) {
+        identificador = -1;
+        this.descripcion = descripcion;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
