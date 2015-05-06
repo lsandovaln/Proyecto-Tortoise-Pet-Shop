@@ -2,6 +2,7 @@
 package pe.com.tortoise.model.business;
 
 import pe.com.tortoise.model.persistence.ProductoDao;
+import pe.com.tortoise.model.view.CategoriaView;
 import pe.com.tortoise.model.view.ProductoView;
 
 public class Producto {
@@ -12,7 +13,8 @@ public class Producto {
     private Categoria categoria;
 
     public ProductoView obtenerVista() {
-        return new ProductoView(identificador, nombre, stock, precio, categoria.getDescripcion());
+        return new ProductoView(identificador, nombre, stock, precio, 
+                categoria.obtenerVista());
     }
     
     public boolean guardar() {

@@ -6,14 +6,14 @@ public class ProductoView {
     public String nombre;
     public Integer stock;
     public Double precio;
-    public String descripcionCategoria;
+    public CategoriaView categoria;
     
     public ProductoView(Integer identificador, String nombre, 
-            Integer stock, Double precio, String descripcionCategoria) {
+            Integer stock, Double precio, CategoriaView categoria) {
         this.identificador = identificador;
         this.nombre = nombre;
         this.stock = stock;
         this.precio = precio;
-        this.descripcionCategoria = descripcionCategoria;
+        this.categoria = categoria;
     }
 }
