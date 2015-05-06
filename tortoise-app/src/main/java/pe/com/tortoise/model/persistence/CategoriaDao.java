@@ -19,8 +19,8 @@ public class CategoriaDao {
         try {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
-            String sql = "INSERT INTO categoria(descripcion) VALUES(" +
-                    categoria.getDescripcion() + ")";
+            String sql = "INSERT INTO categoria(descripcion) VALUES('" +
+                    categoria.getDescripcion() + "')";
             stmnt.executeUpdate(sql);
             return true;
         } catch(SQLException ex) {
@@ -50,7 +50,7 @@ public class CategoriaDao {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
             String sql = "UDATE categoria " +
-                    "SET descripcion=" + categoria.getDescripcion() +
+                    "SET descripcion='" + categoria.getDescripcion()+"'" +
                     "WHERE id=" + categoria.getIdentificador().toString();
             stmnt.executeUpdate(sql);
             return true;

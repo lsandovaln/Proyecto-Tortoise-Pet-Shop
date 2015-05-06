@@ -1,5 +1,5 @@
 <h1>Mantenimiento de Categorias</h1>
-<a href="#">Agregar nueva categoria</a>
+<a href="/Mantenimiento/Categorias/Registrar">Agregar nueva categoria</a>
 <table>
     <tr>
         <th>ID</th>
@@ -7,8 +7,11 @@
         <th>Accion</th>
     </tr>
         <#list categorias as categoria>
-            <td>${categoria.identificador}</td>
-            <td>${categoria.descripcion}</td>
-            <td><a href="#">Editar</a><a href="#">Eliminar</a></td>
+            <tr>
+                <td>${categoria.identificador}</td>
+                <td>${categoria.descripcion}</td>
+                <td><a href="/Mantenimiento/Categorias/Actualizar/${categoria.identificador}">Editar</a>
+                    |<a href="/Mantenimiento/Categorias/Eliminar/${categoria.identificador}">Eliminar</a></td>
+            </tr>
         </#list>  
 </table>

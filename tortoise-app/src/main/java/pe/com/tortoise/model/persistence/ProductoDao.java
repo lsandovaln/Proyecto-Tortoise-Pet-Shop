@@ -20,7 +20,7 @@ public class ProductoDao {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
             String sql = "INSERT INTO producto(nombre, stock, precio, idcategoria) "
-                    + "VALUES(" + producto.getNombre() + ","
+                    + "VALUES('" + producto.getNombre() + "',"
                     + producto.getStock().toString() + ","
                     + producto.getPrecio().toString() + ","
                     + producto.getCategoria().getIdentificador().toString() + ")";
@@ -53,7 +53,7 @@ public class ProductoDao {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
             String sql = "UPDATE producto SET"
-                    + "nombre=" + producto.getNombre() + ","
+                    + "nombre='" + producto.getNombre() + "',"
                     + "stock=" + producto.getStock().toString() + ","
                     + "precio=" + producto.getPrecio().toString() + ","
                     + "idcategoria=" + producto.getCategoria().getIdentificador().toString()

@@ -1,8 +1,17 @@
 <h1>
-    <#if producto??>Editar producto<#else>Agregar nuevo producto</#if>
+    <#if producto??>
+        Editar producto
+    <#else>
+        Agregar nuevo producto
+    </#if>
 </h1>
-<form method="POST" <#if producto??>action="/Mantenimiento/Productos/:${producto.identificador}"
-    <#else>action="/Mantenimiento/Productos/Registrar"</#if>>
+<form method="POST" 
+    <#if producto??>
+        action="/Mantenimiento/Productos/Actualizar/:${producto.identificador}"
+    <#else>
+        action="/Mantenimiento/Productos/Registrar"
+    </#if>>
+
     <table>
         <#if producto??>
             <tr>
@@ -11,7 +20,7 @@
                     <input type="text" name="txtId" 
                         value="${producto.identificador}" readonly>
                 </td>
-            <tr>
+            </tr>
         </#if>
         <tr>
             <th>Nombre</th>
@@ -19,7 +28,7 @@
                 <input type="text" name="txtNombre" 
                     value="<#if producto??>${producto.nombre}</#if>">
             </td>
-        <tr>
+        </tr>
         <tr>
             <th>Categoria</th>
             <td>
@@ -30,21 +39,21 @@
                     </#list>  
                 </select>
             </td>
-        <tr>
+        </tr>
         <tr>
             <th>Precio</th>
             <td>
                 <input type="text" name="txtPrecio" 
                     value="<#if producto??>${producto.precio}</#if>">
             </td>
-        <tr>
+        </tr>
         <tr>
             <th>Stock</th>
             <td>
                 <input type="text" name="txtStock" 
                     value="<#if producto??>${producto.stock}</#if>">
             </td>
-        <tr>
+        </tr>
     </table>
     <input type="submit" value="Guardar">
 </form>
