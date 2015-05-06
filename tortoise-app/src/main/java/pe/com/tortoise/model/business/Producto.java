@@ -38,6 +38,14 @@ public class Producto {
         this.precio = precio;
         this.categoria = categoria;
     }
+
+    public Producto(Integer identificador, String nombre, Integer stock, Double precio, Categoria categoria) {
+        this.identificador = identificador;
+        this.nombre = nombre;
+        this.stock = stock;
+        this.precio = precio;
+        this.categoria = categoria;
+    }
     
     public Integer getIdentificador() {
         return identificador;

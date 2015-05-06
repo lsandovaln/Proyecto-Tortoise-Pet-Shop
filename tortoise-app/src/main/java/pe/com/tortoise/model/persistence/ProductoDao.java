@@ -80,14 +80,14 @@ public class ProductoDao {
         }
     }
     
-    public static synchronized boolean eliminarProducto(Producto producto) {
+    public static synchronized boolean eliminarProducto(Integer id) {
         Connection cn = null;
         Statement stmnt = null;
         try {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
             String sql = "DELETE producto"
-                    + "WHERE id=" + producto.getIdentificador();
+                    + "WHERE id=" + id.toString();
             stmnt.executeUpdate(sql);
             return true;
         } catch(SQLException ex) {
