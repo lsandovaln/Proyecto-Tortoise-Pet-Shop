@@ -1,7 +1,19 @@
+-- MySQL Workbench Forward Engineering
+
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema tortoise
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema tortoise
+-- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `tortoise` DEFAULT CHARACTER SET utf8 ;
 USE `tortoise` ;
 
@@ -10,9 +22,10 @@ USE `tortoise` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tortoise`.`categoria` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `descripcion` VARCHAR(80) NULL DEFAULT NULL,
+  `descripcion` VARCHAR(80) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 9
 DEFAULT CHARACTER SET = utf8;
 
 
@@ -21,16 +34,19 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tortoise`.`producto` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NULL DEFAULT NULL,
-  `stock` INT(11) NULL DEFAULT NULL,
-  `precio` DECIMAL(8,2) NULL DEFAULT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `stock` INT(11) NOT NULL,
+  `precio` DECIMAL(8,2) NOT NULL,
+  `idcategoria` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
-  CONSTRAINT `idcategoria`
-    FOREIGN KEY (`id`)
+  INDEX `FK_producto` (`idcategoria` ASC),
+  CONSTRAINT `FK_producto`
+    FOREIGN KEY (`idcategoria`)
     REFERENCES `tortoise`.`categoria` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB
+AUTO_INCREMENT = 6
 DEFAULT CHARACTER SET = utf8;
 
 
