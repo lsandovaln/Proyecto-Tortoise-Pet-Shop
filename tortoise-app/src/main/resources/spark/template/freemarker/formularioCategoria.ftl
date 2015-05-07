@@ -6,7 +6,6 @@
     </#if>
 </h1>
 <form method="POST" <#if categoria??>action="/Mantenimiento/Categorias/Actualizar/${categoria.identificador}"<#else>action="/Mantenimiento/Categorias/Registrar"</#if>>
-
     <table>
         <#if categoria??>
         <tr>

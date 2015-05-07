@@ -77,8 +77,8 @@ public class Controller {
         get("/Mantenimiento/Productos/Actualizar/:id", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             Integer id = Integer.parseInt(request.params(":id"));
-            Producto producto = ProductoDao.obtenerProducto(id);
-            attributes.put("producto", producto.obtenerVista());
+            attributes.put("producto", ProductoDao.obtenerProducto(id));
+            attributes.put("categorias", CategoriaDao.obtenerCategorias());
             attributes.put("templateName", "formularioProducto.ftl");
             return new ModelAndView(attributes, "layout.ftl");
         }, new FreeMarkerEngine());
@@ -86,14 +86,14 @@ public class Controller {
         get("/Mantenimiento/Categorias/Actualizar/:id", (request, response) -> {
             Map<String, Object> attributes = new HashMap<>();
             Integer id = Integer.parseInt(request.params(":id"));
-            attributes.put("categoria", CategoriaDao.obtenerCategoria(id).obtenerVista());
+            attributes.put("categoria", CategoriaDao.obtenerCategoria(id));
             attributes.put("templateName", "formularioCategoria.ftl");
             return new ModelAndView(attributes, "layout.ftl");
         }, new FreeMarkerEngine());
         
         post("/Mantenimiento/Productos/Actualizar/:id", (request, response) -> {
             Integer id = Integer.parseInt(request.queryParams("txtId"));
-            String nombre = request.queryParams("txtNombre").toString();
+            String nombre = request.queryParams("txtNombre");
             Integer idCategoria = Integer.parseInt(request.queryParams("txtCategoria"));
             Categoria categoria = CategoriaDao.obtenerCategoria(idCategoria);
             Double precio = Double.parseDouble(request.queryParams("txtPrecio"));

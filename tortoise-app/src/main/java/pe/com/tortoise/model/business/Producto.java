@@ -1,31 +1,12 @@
 
 package pe.com.tortoise.model.business;
 
-import pe.com.tortoise.model.persistence.ProductoDao;
-import pe.com.tortoise.model.view.CategoriaView;
-import pe.com.tortoise.model.view.ProductoView;
-
 public class Producto {
     private Integer identificador;
     private String nombre;
     private Integer stock;
     private Double precio;
     private Categoria categoria;
-
-    public ProductoView obtenerVista() {
-        return new ProductoView(identificador, nombre, stock, precio, 
-                categoria.obtenerVista());
-    }
-    
-    public boolean guardar() {
-        boolean rpta = false;
-        if(identificador < 0) {
-            rpta = ProductoDao.insertarProducto(this);
-        } else {
-            rpta = ProductoDao.actualizarProducto(this);
-        }
-        return rpta;
-    }
     
     public Producto() {
         identificador = -1;

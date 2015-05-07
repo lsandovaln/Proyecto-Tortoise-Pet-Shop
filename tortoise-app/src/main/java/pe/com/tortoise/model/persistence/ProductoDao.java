@@ -163,7 +163,7 @@ public class ProductoDao {
         try {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
-            String sql = "SELECT * FROM categoria";
+            String sql = "SELECT * FROM producto";
             rs = stmnt.executeQuery(sql);
             List<Producto> productos = new ArrayList<>();
             while(rs.next()) {

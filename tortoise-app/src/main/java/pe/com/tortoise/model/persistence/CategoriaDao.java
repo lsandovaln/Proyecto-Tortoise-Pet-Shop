@@ -49,9 +49,9 @@ public class CategoriaDao {
         try {
             cn = Conexion.obtenerConexion();
             stmnt = cn.createStatement();
-            String sql = "UDATE categoria " +
+            String sql = "UPDATE categoria " +
                     "SET descripcion='" + categoria.getDescripcion()+"' " +
-                    "WHERE id=" + categoria.getIdentificador().toString();
+                    "WHERE id=" + categoria.getIdentificador().toString() + ";";
             stmnt.executeUpdate(sql);
             return true;
         } catch(SQLException ex) {
